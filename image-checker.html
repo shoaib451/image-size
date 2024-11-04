@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Image Size</title>
+</head>
+<body>
+    <input type="file" id="imageInput" accept="image/*">
+    <p id="imageSize"></p>
+
+    <script>
+        document.getElementById('imageInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            
+            if (file) {
+                const fileSizeInBytes = file.size;
+                const fileSizeInKB = (fileSizeInBytes / 1024).toFixed(2); // Convert to KB for readability
+                
+                document.getElementById('imageSize').textContent = `Image size: ${fileSizeInKB} KB (${fileSizeInBytes} bytes)`;
+            }
+        });
+    </script>
+</body>
+</html>
